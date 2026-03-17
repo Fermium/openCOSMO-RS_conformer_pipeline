@@ -515,6 +515,7 @@ class ConformerGenerator(object):
             else:
                 step_dirs = []
                 all_step_dirs = []
+                last_step_dir = None
                 for dir_ in os.listdir(self.dir_job):
                     if "_" in dir_:
                         step_number = dir_.split("_")[0]
