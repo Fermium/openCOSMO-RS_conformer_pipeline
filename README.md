@@ -24,6 +24,25 @@ methane[TAB]C[TAB]xyz_file[TAB]0[TAB]True
 ethanol[TAB]CCO[TAB][TAB]0
 ```
 
+## Docker
+
+Place your ORCA 6.0+ installation in an `orca/` directory next to the Dockerfile, then:
+
+```bash
+docker compose up          # builds image & runs with default settings
+```
+
+Mount your data directory and override the defaults as needed:
+
+```bash
+docker run --rm -v $(pwd)/data:/data opencosmo-conformer \
+  --structures_file structures.inp --cpcm_radii_file /app/cpcm_radii.inp --n_cores 4
+```
+
+> **Note:** The image contains ORCA, which is proprietary — do not push built images to a public registry.
+
+## Sigma Profile
+
 This is to calculate and plot the sigma profile:
 ```python
 from matplotlib import pyplot as plt
