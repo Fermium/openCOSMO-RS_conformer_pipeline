@@ -14,14 +14,17 @@ python ConformerGenerator.py --structures_file file.inp --cpcm_radii cpcm_radii.
 
 with file.inp beeing a TAB separated file similar to the following:
 
-name&nbsp;_[TAB]_&nbsp;SMILES&nbsp;_[TAB]_&nbsp;optional xyz file&nbsp;_[TAB]_&nbsp;charge&nbsp;_[TAB]_&nbsp;optional geometry optimization
+name&nbsp;_[TAB]_&nbsp;SMILES&nbsp;_[TAB]_&nbsp;optional xyz/sdf file&nbsp;_[TAB]_&nbsp;charge&nbsp;_[TAB]_&nbsp;optional geometry optimization
 
-the optional geometry optimization column assumes [0, False, no] to be False and everything else to be True.
+The structure file column accepts `.xyz`, `.sdf`, or `.mol` files. SDF/MOL files are parsed directly for bond connectivity, so no bond-order guessing is needed.
+
+The optional geometry optimization column assumes [0, False, no] to be False and everything else to be True.
 
 Examples:
 ```
-methane[TAB]C[TAB]xyz_file[TAB]0[TAB]True
-ethanol[TAB]CCO[TAB][TAB]0
+methane[TAB]C[TAB]methane.xyz[TAB]0[TAB]True
+ethanol[TAB]CCO[TAB]ethanol.sdf[TAB]0
+propanediol[TAB][TAB]propanediol.sdf[TAB]0
 ```
 
 ## Docker
